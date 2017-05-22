@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
+import {browserHistory} from 'react-router'
+
 import Form from './components/Form'
 
-import '../../assets/css/login.css'
-
 class Login extends Component {
-  handleSubmit = values => console.log(values)
+  handleSubmit = () => browserHistory.push('/home')
   render() {
     return (
       <div className="container">
