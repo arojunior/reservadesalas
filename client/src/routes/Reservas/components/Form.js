@@ -2,15 +2,23 @@ import React from 'react'
 import {Field, reduxForm} from 'redux-form'
 
 const Form = props => {
-  const {handleSubmit, pristine, reset, submitting} = props
+  const {handleSubmit, salas, locais, pristine, reset, submitting} = props
+
+  const salasOptions = salas.map(sala => (
+    <option key={sala.id} value={sala.id}>{sala.nome}</option>
+  ))
+
+  const locaisOptions = locais.map(local => (
+    <option key={local.id} value={local.id}>{local.nome}</option>
+  ))
+
   return (
     <form onSubmit={handleSubmit} className="form-horizontal">
       <div className="form-group">
         <label className="col-md-2">Local/Filial</label>
         <div className="col-md-10">
           <Field name="local" component="select" className="form-control">
-            <option>Local 1</option>
-            <option>Local 2</option>
+            {locaisOptions}
           </Field>
         </div>
       </div>
@@ -18,8 +26,7 @@ const Form = props => {
         <label className="col-md-2">Sala</label>
         <div className="col-md-10">
           <Field name="sala" component="select" className="form-control">
-            <option>Sala 1</option>
-            <option>Sala 2</option>
+            {salasOptions}
           </Field>
         </div>
       </div>
