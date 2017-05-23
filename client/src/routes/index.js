@@ -2,6 +2,7 @@ import Layout from '../layouts'
 
 import Home from './Home'
 import Login from './Login'
+import Reservas, {ReservaNova} from './Reservas/routes'
 
 export default [
   {
@@ -12,6 +13,6 @@ export default [
     path: '/home',
     component: Layout,
     indexRoute: Home,
-    childRoutes: []
+    childRoutes: [Reservas, ReservaNova]
   }
 ]

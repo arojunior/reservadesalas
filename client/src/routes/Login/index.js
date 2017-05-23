@@ -3,11 +3,15 @@ import {browserHistory} from 'react-router'
 
 import Form from './components/Form'
 
+const style = {
+  'margin-top': '10px'
+}
+
 class Login extends Component {
   handleSubmit = () => browserHistory.push('/home')
   render() {
     return (
-      <div className="container">
+      <div className="container" style={style}>
         <div className="col-md-8 col-md-offset-2">
           <div className="jumbotron">
             <div className="row text-center">
