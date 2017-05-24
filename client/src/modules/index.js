@@ -4,6 +4,7 @@ import fetchMiddleware from 'fetch-middleware'
 
 import Salas from './Salas'
 import Locais from './Locais'
+import Reservas from './Reservas'
 
 const combineReducer = combineReducers({
   form: formReducer,
