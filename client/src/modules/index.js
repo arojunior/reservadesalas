@@ -1,7 +1,5 @@
-import {combineReducers} from 'redux'
+import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
 import {reducer as formReducer} from 'redux-form'
-
-import {createStore, applyMiddleware, compose} from 'redux'
 import fetchMiddleware from 'fetch-middleware'
 
 import Salas from './Salas'
