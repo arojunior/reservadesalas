@@ -1,9 +1,9 @@
 import axios from 'axios'
 import {createAction} from 'redux-actions'
 
-export const RESERVA_FETCHING = 'modules/Github/FETCHING'
-export const RESERVA_SUCCESS = 'modules/Github/SUCCESS'
-export const RESERVA_ERROR = 'modules/Github/ERROR'
+export const RESERVA_FETCHING = 'modules/Reservas/FETCHING'
+export const RESERVA_SUCCESS = 'modules/Reservas/SUCCESS'
+export const RESERVA_ERROR = 'modules/Reservas/ERROR'
 
 const reservaFetching = createAction(RESERVA_FETCHING)
 const reservaError = createAction(RESERVA_ERROR)

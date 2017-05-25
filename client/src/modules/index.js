@@ -12,7 +12,7 @@ const combineReducer = combineReducers({
   Locais
 })
 
-export const store = createStore(
+const store = createStore(
   combineReducer,
   {},
   compose(
@@ -20,3 +20,5 @@ export const store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 )
+
+export default store
