@@ -1,7 +1,8 @@
 const router = require('express').Router()
+const model = require('../../models/reservas')
 
 router.get('/', (req, res, next) => {
-  res.json({hello: 'World'})
+  model.find().then(reservas => res.json(reservas))
 })
 
 module.exports = router

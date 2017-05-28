@@ -1,9 +1,14 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
+import {connect} from 'react-redux'
 
 import Listagem from './components/Listagem'
+import {getReservas} from '../../modules/Reservas/actions'
 
 class Reservas extends Component {
+  componentWillMount() {
+    this.props.dispatch(getReservas())
+  }
   render() {
     return (
       <div>
@@ -18,4 +23,4 @@ class Reservas extends Component {
   }
 }
 
-export default Reservas
+export default connect(state => state.Reservas)(Reservas)

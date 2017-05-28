@@ -9,7 +9,8 @@ import Reservas from './Reservas'
 const combineReducer = combineReducers({
   form: formReducer,
   Salas,
-  Locais
+  Locais,
+  Reservas
 })
 
 const store = createStore(

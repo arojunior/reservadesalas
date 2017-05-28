@@ -11,9 +11,17 @@ const reservaSuccess = createAction(RESERVA_SUCCESS)
 
 axios.defaults.baseURL = 'http://localhost:3001'
 
-export const getReservas = id => ({
-  type: [reservaFetching, reservaSuccess, reservaError],
-  payload: {
-    data: () => axios.get(`/reservas/${id}`)
+export const getReservas = id => {
+  let url = `/reservas`
+
+  if (id) {
+    url += `/${id}`
   }
-})
+
+  return {
+    type: [reservaFetching, reservaSuccess, reservaError],
+    payload: {
+      data: () => axios.get(url)
+    }
+  }
+}
