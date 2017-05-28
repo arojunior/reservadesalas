@@ -1,5 +1,6 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
+import {compose, withState, withHandlers} from 'recompose'
 
 const Form = props => {
   const {handleSubmit, salas, locais, pristine, reset, submitting} = props
@@ -69,9 +70,26 @@ const Form = props => {
       <div className="form-group">
         <label className="col-md-2">Café</label>
         <div className="col-md-10">
-          <Field name="cafe" component="input" type="checkbox" />
+          <Field
+            name="cafe"
+            component="input"
+            type="checkbox"
+            onChange={() => props.cafeClick(props.cafeIsChecked)}
+          />
         </div>
       </div>
+      {props.cafeIsChecked &&
+        <div className="form-group">
+          <label className="col-md-2">Qtd pessoas</label>
+          <div className="col-md-2">
+            <Field
+              name="quantidade_pessoas"
+              component="input"
+              type="text"
+              className="form-control"
+            />
+          </div>
+        </div>}
       <div className="form-group">
         <label className="col-md-2">Descrição</label>
         <div className="col-md-10">
@@ -103,6 +121,11 @@ const Form = props => {
   )
 }
 
-export default reduxForm({
-  form: 'formReservas'
-})(Form)
+const formReservas = reduxForm({form: 'formReservas'})(Form)
+
+export default compose(
+  withState('cafeIsChecked', 'setCafe', false),
+  withHandlers({
+    cafeClick: ({setCafe}) => cafeIsChecked => setCafe(() => !cafeIsChecked)
+  })
+)(formReservas)
