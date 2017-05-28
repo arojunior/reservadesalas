@@ -10,7 +10,11 @@ const List = props => {
           <td>{reserva.sala}</td>
           <td>11/11/1111</td>
           <td>
-            <button className="btn btn-info">Editar</button>
+            <button
+              className="btn btn-info"
+              onClick={() => props.editReservas(reserva)}>
+              Editar
+            </button>
             {' '}
             <button className="btn btn-warning">Excluir</button>
           </td>

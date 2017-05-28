@@ -17,7 +17,7 @@ export const AddReserva = {
   }
 }
 export const EditReserva = {
-  path: '/reservas/editar/:id',
+  path: '/reservas/editar',
 
   getComponent(nextState, cb) {
     require.ensure([], require => {

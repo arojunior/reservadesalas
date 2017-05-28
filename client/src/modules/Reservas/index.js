@@ -1,10 +1,16 @@
 import {handleActions} from 'redux-actions'
 
-import {RESERVA_FETCHING, RESERVA_SUCCESS, RESERVA_ERROR} from './actions'
+import {
+  RESERVA_FETCHING,
+  RESERVA_SUCCESS,
+  RESERVA_ERROR,
+  RESERVA_SELECT
+} from './actions'
 
 const initialState = {
   fetching: false,
-  data: null
+  data: null,
+  selected: null
 }
 
 const reducer = handleActions(
@@ -23,6 +29,12 @@ const reducer = handleActions(
     [RESERVA_ERROR]: (state, action) => ({
       ...state,
       fetching: false
+    }),
+
+    [RESERVA_SELECT]: (state, action) => ({
+      ...state,
+      fetching: false,
+      selected: action.payload
     })
   },
   initialState

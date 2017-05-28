@@ -19,6 +19,7 @@ const Form = props => {
         <label className="col-md-2">Local/Filial</label>
         <div className="col-md-10">
           <Field name="local" component="select" className="form-control">
+            <option>--Selecione a Filial--</option>
             {locaisOptions}
           </Field>
         </div>
@@ -27,6 +28,7 @@ const Form = props => {
         <label className="col-md-2">Sala</label>
         <div className="col-md-10">
           <Field name="sala" component="select" className="form-control">
+            <option>--Selecione a Sala--</option>
             {salasOptions}
           </Field>
         </div>
@@ -86,7 +88,7 @@ const Form = props => {
             type="submit"
             className="btn btn-primary"
             disabled={pristine || submitting}>
-            Enviar
+            Gravar
           </button>{' '}
           <button
             type="button"

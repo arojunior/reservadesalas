@@ -1,16 +1,19 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
+import {browserHistory} from 'react-router'
 
 import Form from '../components/Form'
-import {getReservas, editReservas} from '../../../modules/Reservas/actions'
+import {editReservas} from '../../../modules/Reservas/actions'
 
 class EditReserva extends Component {
   handleSubmit = values => this.props.dispatch(editReservas(values))
-  componentWillMount() {
-    this.props.dispatch(getReservas(this.props.params.id))
-  }
+
   render() {
+    if (!this.props.Reserva) {
+      browserHistory.push('/reservas')
+    }
+
     return (
       <div>
         <p className="pull-right">
@@ -34,7 +37,7 @@ class EditReserva extends Component {
 const mapStateToProps = state => ({
   Salas: state.Salas.data,
   Locais: state.Locais.data,
-  Reserva: state.Reservas.data
+  Reserva: state.Reservas.selected
 })
 
 export default connect(mapStateToProps)(EditReserva)
