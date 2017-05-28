@@ -17,10 +17,13 @@ class Reservas extends Component {
             <Link to="/reservas/nova" className="btn btn-primary">Nova</Link>
           </span>
         </div>
-        <Listagem />
+        <Listagem reservas={this.props.Reservas} />
       </div>
     )
   }
 }
+const mapStateToProps = state => ({
+  Reservas: state.Reservas.data
+})
 
-export default connect(state => state.Reservas)(Reservas)
+export default connect(mapStateToProps)(Reservas)

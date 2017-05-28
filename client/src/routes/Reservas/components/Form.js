@@ -5,15 +5,16 @@ const Form = props => {
   const {handleSubmit, salas, locais, pristine, reset, submitting} = props
 
   const salasOptions = salas.map(sala => (
-    <option key={sala.id} value={sala.id}>{sala.nome}</option>
+    <option key={sala.id} value={sala.nome}>{sala.nome}</option>
   ))
 
   const locaisOptions = locais.map(local => (
-    <option key={local.id} value={local.id}>{local.nome}</option>
+    <option key={local.id} value={local.nome}>{local.nome}</option>
   ))
 
   return (
     <form onSubmit={handleSubmit} className="form-horizontal">
+      <Field type="hidden" name="_id" component="input" />
       <div className="form-group">
         <label className="col-md-2">Local/Filial</label>
         <div className="col-md-10">

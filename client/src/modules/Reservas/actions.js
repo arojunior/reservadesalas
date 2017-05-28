@@ -25,3 +25,17 @@ export const getReservas = id => {
     }
   }
 }
+
+export const addReservas = values => ({
+  type: [reservaFetching, reservaSuccess, reservaError],
+  payload: {
+    data: () => axios.post('/reservas', values)
+  }
+})
+
+export const editReservas = values => ({
+  type: [reservaFetching, reservaSuccess, reservaError],
+  payload: {
+    data: () => axios.put('/reservas', values)
+  }
+})

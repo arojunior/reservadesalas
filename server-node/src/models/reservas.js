@@ -9,6 +9,7 @@ const reservas = Schema(
     data_fim: Date,
     responsavel: String,
     cafe: Boolean,
+    quantidade_pessoas: Number,
     descricao: String
   },
   {

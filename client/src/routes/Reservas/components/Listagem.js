@@ -1,23 +1,36 @@
 import React from 'react'
 
-const List = () => {
+const List = props => {
+  const listagem = props.reservas
+    ? props.reservas.map(reserva => (
+        <tr key={reserva._id}>
+          <td>{reserva.descricao}</td>
+          <td>{reserva.responsavel}</td>
+          <td>{reserva.local}</td>
+          <td>{reserva.sala}</td>
+          <td>11/11/1111</td>
+          <td>
+            <button className="btn btn-info">Editar</button>
+            {' '}
+            <button className="btn btn-warning">Excluir</button>
+          </td>
+        </tr>
+      ))
+    : null
   return (
     <table className="table">
       <thead>
         <tr>
-          <th>#</th>
+          <th>Desc.</th>
+          <th>Resp.</th>
           <th>Local</th>
           <th>Sala</th>
           <th>Data</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>lalala</td>
-          <td>Campeche</td>
-          <td>11/11/1111</td>
-        </tr>
+        {listagem}
       </tbody>
     </table>
   )
