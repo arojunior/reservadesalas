@@ -8,6 +8,7 @@ import {addReservas} from '../../../modules/Reservas/actions'
 class AddReserva extends Component {
   handleSubmit = values => this.props.dispatch(addReservas(values))
   render() {
+    const initialValues = {}
     return (
       <div>
         <p className="pull-right">
@@ -19,6 +20,7 @@ class AddReserva extends Component {
               salas={this.props.Salas}
               locais={this.props.Locais}
               onSubmit={this.handleSubmit}
+              initialValues={initialValues}
             />
           </div>
         </div>
