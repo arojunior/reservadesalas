@@ -17,7 +17,7 @@ const Navigation = () => (
           <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
-        <a className="navbar-brand" href="#">Reserva de Salas</a>
+        <a className="navbar-brand" href="/home">Reserva de Salas</a>
       </div>
       <div id="navbar" className="navbar-collapse collapse">
         <ul className="nav navbar-nav navbar-right">
