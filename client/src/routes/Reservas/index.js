@@ -4,7 +4,11 @@ import {connect} from 'react-redux'
 import {browserHistory} from 'react-router'
 
 import Listagem from './components/Listagem'
-import {getReservas, reservaSelect} from '../../modules/Reservas/actions'
+import {
+  getReservas,
+  reservaSelect,
+  deleteReservas
+} from '../../modules/Reservas/actions'
 
 class Reservas extends Component {
   componentWillMount() {
@@ -15,6 +19,17 @@ class Reservas extends Component {
     Promise.resolve(this.props.dispatch(reservaSelect(reserva))).then(() =>
       browserHistory.push('/reservas/editar')
     )
+  }
+
+  handleBtExluir = reserva => {
+    const {dispatch} = this.props
+    const conf = confirm(
+      `Deseja mesmo cancelar a Reserva [${reserva.descricao}] ?`
+    )
+
+    if (conf) {
+      dispatch(deleteReservas(reserva._id))
+    }
   }
 
   render() {
@@ -28,6 +43,7 @@ class Reservas extends Component {
         <Listagem
           reservas={this.props.Reservas}
           editReservas={this.handleBtEditar}
+          deleteReservas={this.handleBtExluir}
         />
       </div>
     )

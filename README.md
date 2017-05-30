@@ -8,6 +8,6 @@ npm start
 ### Start nodejs api server
 
 ```shell
-cd server-node
+cd server
 npm start
 ```

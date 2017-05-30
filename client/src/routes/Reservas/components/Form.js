@@ -1,5 +1,13 @@
 import React, {Component} from 'react'
 import {Field, reduxForm} from 'redux-form'
+import renderField, {required} from 'redux-form-field-wrapper'
+
+const fieldConfig = {
+  divClass: 'form-group',
+  inputClass: 'col-md-8',
+  labelClass: 'col-md-2 control-label',
+  component: renderField
+}
 
 class Form extends Component {
   constructor(props) {
@@ -33,16 +41,24 @@ class Form extends Component {
       <form onSubmit={handleSubmit} className="form-horizontal">
         <Field type="hidden" name="_id" component="input" />
         <div className="form-group">
-          <label className="col-md-2">Local/Filial</label>
+          <div className="col-md-2 control-label">
+            <label>Local/Filial</label>
+          </div>
           <div className="col-md-10">
-            <Field name="local" component="select" className="form-control">
+            <Field
+              name="local"
+              component="select"
+              className="form-control"
+              validate={required}>
               <option>--Selecione a Filial--</option>
               {locaisOptions}
             </Field>
           </div>
         </div>
         <div className="form-group">
-          <label className="col-md-2">Sala</label>
+          <div className="col-md-2 control-label">
+            <label>Sala</label>
+          </div>
           <div className="col-md-10">
             <Field name="sala" component="select" className="form-control">
               <option>--Selecione a Sala--</option>
@@ -50,41 +66,33 @@ class Form extends Component {
             </Field>
           </div>
         </div>
+        <Field
+          {...fieldConfig}
+          type="text"
+          name="data_inicio"
+          inputClass="col-md-5"
+          label="Data início"
+          validate={required}
+        />
+        <Field
+          {...fieldConfig}
+          type="text"
+          name="data_fim"
+          inputClass="col-md-5"
+          label="Data fim"
+          validate={required}
+        />
+        <Field
+          {...fieldConfig}
+          type="text"
+          name="responsavel"
+          label="Responsável"
+          validate={required}
+        />
         <div className="form-group">
-          <label className="col-md-2">Data início</label>
-          <div className="col-md-5">
-            <Field
-              type="text"
-              name="data_inicio"
-              component="input"
-              className="form-control"
-            />
+          <div className="col-md-2 control-label">
+            <label>Café</label>
           </div>
-        </div>
-        <div className="form-group">
-          <label className="col-md-2">Data fim</label>
-          <div className="col-md-5">
-            <Field
-              type="text"
-              name="data_fim"
-              component="input"
-              className="form-control"
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <label className="col-md-2">Responsável</label>
-          <div className="col-md-10">
-            <Field
-              name="responsavel"
-              component="input"
-              type="text"
-              className="form-control"
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <label className="col-md-2">Café</label>
           <div className="col-md-10">
             <Field
               name="cafe"
@@ -96,28 +104,23 @@ class Form extends Component {
         </div>
 
         {this.state.cafeIsChecked &&
-          <div className="form-group">
-            <label className="col-md-2">Qtd pessoas</label>
-            <div className="col-md-2">
-              <Field
-                name="quantidade_pessoas"
-                component="input"
-                type="text"
-                className="form-control"
-              />
-            </div>
-          </div>}
+          <Field
+            {...fieldConfig}
+            type="text"
+            name="quantidade_pessoas"
+            label="Qtd. pessoas"
+            inputClass="col-md-2"
+            validate={required}
+          />}
 
-        <div className="form-group">
-          <label className="col-md-2">Descrição</label>
-          <div className="col-md-10">
-            <Field
-              name="descricao"
-              component="textarea"
-              className="form-control"
-            />
-          </div>
-        </div>
+        <Field
+          {...fieldConfig}
+          type="textarea"
+          name="descricao"
+          label="Descrição"
+          validate={required}
+        />
+
         <div className="form-group">
           <div className="col-md-offset-2 col-md-10">
             <button

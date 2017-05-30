@@ -33,3 +33,10 @@ export const editReservas = values => ({
     data: () => axios.put('/reservas', values)
   }
 })
+
+export const deleteReservas = id => ({
+  type: [reservaFetching, reservaSuccess, reservaError],
+  payload: {
+    data: () => axios.delete(`/reservas/${id}`)
+  }
+})

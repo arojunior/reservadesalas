@@ -18,4 +18,14 @@ router.put('/', (req, res, next) => {
   model.update(conditions, req.body).then(response => res.json(response.data))
 })
 
+router.delete('/:id', (req, res, next) => {
+  const id = req.params.id
+
+  model
+    .findOne({_id: id})
+    .then(reserva => model.remove(reserva))
+    .then(reservas => model.find())
+    .then(reservas => res.json(reservas))
+})
+
 module.exports = router

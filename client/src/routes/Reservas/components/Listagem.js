@@ -16,7 +16,11 @@ const List = props => {
               Editar
             </button>
             {' '}
-            <button className="btn btn-warning">Excluir</button>
+            <button
+              className="btn btn-warning"
+              onClick={() => props.deleteReservas(reserva)}>
+              Excluir
+            </button>
           </td>
         </tr>
       ))
