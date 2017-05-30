@@ -30,7 +30,7 @@ export const addReservas = values => ({
 export const editReservas = values => ({
   type: [reservaFetching, reservaSuccess, reservaError],
   payload: {
-    data: () => axios.put('/reservas', values)
+    data: () => axios.put(`/reservas/${values._id}`, values)
   }
 })
 

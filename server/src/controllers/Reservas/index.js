@@ -10,9 +10,9 @@ router.post('/', (req, res, next) => {
   model.create(reserva).then(response => res.json(response.data))
 })
 
-router.put('/', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
   const conditions = {
-    _id: req.body._id
+    _id: req.params.id
   }
   delete req.body._id
   model.update(conditions, req.body).then(response => res.json(response.data))

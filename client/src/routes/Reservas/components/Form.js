@@ -6,6 +6,7 @@ const fieldConfig = {
   divClass: 'form-group',
   inputClass: 'col-md-8',
   labelClass: 'col-md-2 control-label',
+  className: 'form-control',
   component: renderField
 }
 
@@ -29,43 +30,37 @@ class Form extends Component {
       submitting
     } = this.props
 
-    const salasOptions = salas.map(sala => (
-      <option key={sala.id} value={sala.nome}>{sala.nome}</option>
-    ))
+    const salasOptions = salas.map(sala => ({
+      name: sala.nome,
+      value: sala.nome
+    }))
+    salasOptions.unshift({name: ''})
 
-    const locaisOptions = locais.map(local => (
-      <option key={local.id} value={local.nome}>{local.nome}</option>
-    ))
+    const locaisOptions = locais.map(local => ({
+      name: local.nome,
+      value: local.nome
+    }))
+    locaisOptions.unshift({name: ''})
 
     return (
       <form onSubmit={handleSubmit} className="form-horizontal">
         <Field type="hidden" name="_id" component="input" />
-        <div className="form-group">
-          <div className="col-md-2 control-label">
-            <label>Local/Filial</label>
-          </div>
-          <div className="col-md-10">
-            <Field
-              name="local"
-              component="select"
-              className="form-control"
-              validate={required}>
-              <option>--Selecione a Filial--</option>
-              {locaisOptions}
-            </Field>
-          </div>
-        </div>
-        <div className="form-group">
-          <div className="col-md-2 control-label">
-            <label>Sala</label>
-          </div>
-          <div className="col-md-10">
-            <Field name="sala" component="select" className="form-control">
-              <option>--Selecione a Sala--</option>
-              {salasOptions}
-            </Field>
-          </div>
-        </div>
+        <Field
+          {...fieldConfig}
+          name="local"
+          label="Local/Filial"
+          type="select"
+          selectOptions={locaisOptions}
+          validate={required}
+        />
+        <Field
+          {...fieldConfig}
+          name="sala"
+          label="Sala"
+          validate={required}
+          type="select"
+          selectOptions={salasOptions}
+        />
         <Field
           {...fieldConfig}
           type="text"
@@ -89,19 +84,14 @@ class Form extends Component {
           label="Responsável"
           validate={required}
         />
-        <div className="form-group">
-          <div className="col-md-2 control-label">
-            <label>Café</label>
-          </div>
-          <div className="col-md-10">
-            <Field
-              name="cafe"
-              component="input"
-              type="checkbox"
-              onChange={() => this.setCafe(this.state.cafeIsChecked)}
-            />
-          </div>
-        </div>
+        <Field
+          {...fieldConfig}
+          name="cafe"
+          label="Café"
+          type="checkbox"
+          className=""
+          onChange={() => this.setCafe(this.state.cafeIsChecked)}
+        />
 
         {this.state.cafeIsChecked &&
           <Field
@@ -118,7 +108,6 @@ class Form extends Component {
           type="textarea"
           name="descricao"
           label="Descrição"
-          validate={required}
         />
 
         <div className="form-group">
@@ -143,4 +132,6 @@ class Form extends Component {
   }
 }
 
-export default reduxForm({form: 'formReservas'})(Form)
+export default reduxForm({
+  form: 'formReservas'
+})(Form)

@@ -1,11 +1,12 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
-import renderField from 'redux-form-field-wrapper'
+import renderField, {required} from 'redux-form-field-wrapper'
 
-import formConfig from '../../../components/FormConfig'
-
-const defaultConfig = {
-  ...formConfig,
+const fieldConfig = {
+  divClass: 'form-group',
+  inputClass: 'col-md-8',
+  labelClass: 'col-md-2 control-label',
+  className: 'form-control',
   component: renderField
 }
 
@@ -18,6 +19,7 @@ const Form = props => {
         name="email"
         placeholder="E-mail"
         label="E-mail"
+        validate={required}
         {...defaultConfig}
       />
       <Field
@@ -25,6 +27,7 @@ const Form = props => {
         name="password"
         placeholder="Senha"
         label="Senha"
+        validate={required}
         {...defaultConfig}
       />
       <div className="col-md-6 col-md-offset-2">

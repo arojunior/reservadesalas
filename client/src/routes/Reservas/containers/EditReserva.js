@@ -9,11 +9,13 @@ import {editReservas} from '../../../modules/Reservas/actions'
 class EditReserva extends Component {
   handleSubmit = values => this.props.dispatch(editReservas(values))
 
-  render() {
+  componentWillMount() {
     if (!this.props.Reserva) {
       browserHistory.push('/reservas')
     }
+  }
 
+  render() {
     return (
       <div>
         <p className="pull-right">
