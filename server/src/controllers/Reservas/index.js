@@ -1,13 +1,21 @@
 const router = require('express').Router()
-const model = require('../../models/reservas')
+const moment = require('moment')
+
+const model = require('../../models/Reservas')
+
+const dateNormalize = values =>
+  Object.assign({}, values, {
+    data_inicio: moment(values.data_inicio, 'DD/MM/YYYY HH:mm:ss'),
+    data_fim: moment(values.data_fim, 'DD/MM/YYYY HH:mm:ss')
+  })
 
 router.get('/', (req, res, next) => {
   model.find().then(reservas => res.json(reservas))
 })
 
 router.post('/', (req, res, next) => {
-  const reserva = req.body
-  model.create(reserva).then(response => res.json(response.data))
+  const reserva = dateNormalize(req.body)
+  model.create(reserva)
 })
 
 router.put('/:id', (req, res, next) => {
@@ -15,7 +23,7 @@ router.put('/:id', (req, res, next) => {
     _id: req.params.id
   }
   delete req.body._id
-  model.update(conditions, req.body).then(response => res.json(response.data))
+  model.update(conditions, dateNormalize(req.body))
 })
 
 router.delete('/:id', (req, res, next) => {

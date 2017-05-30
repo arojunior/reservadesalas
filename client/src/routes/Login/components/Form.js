@@ -4,7 +4,7 @@ import renderField, {required} from 'redux-form-field-wrapper'
 
 const fieldConfig = {
   divClass: 'form-group',
-  inputClass: 'col-md-8',
+  inputClass: 'col-md-10',
   labelClass: 'col-md-2 control-label',
   className: 'form-control',
   component: renderField
@@ -20,7 +20,7 @@ const Form = props => {
         placeholder="E-mail"
         label="E-mail"
         validate={required}
-        {...defaultConfig}
+        {...fieldConfig}
       />
       <Field
         type="password"
@@ -28,7 +28,7 @@ const Form = props => {
         placeholder="Senha"
         label="Senha"
         validate={required}
-        {...defaultConfig}
+        {...fieldConfig}
       />
       <div className="col-md-6 col-md-offset-2">
         <div className="form-group">

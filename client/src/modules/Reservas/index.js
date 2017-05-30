@@ -1,4 +1,5 @@
 import {handleActions} from 'redux-actions'
+import {normalizeDatetime} from './actions'
 
 import {
   RESERVA_FETCHING,
@@ -23,7 +24,7 @@ const reducer = handleActions(
     [RESERVA_SUCCESS]: (state, action) => ({
       ...state,
       fetching: false,
-      data: action.payload.data
+      data: normalizeDatetime(action.payload.data)
     }),
 
     [RESERVA_ERROR]: (state, action) => ({

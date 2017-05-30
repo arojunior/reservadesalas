@@ -8,7 +8,7 @@ const List = props => {
           <td>{reserva.responsavel}</td>
           <td>{reserva.local}</td>
           <td>{reserva.sala}</td>
-          <td>11/11/1111</td>
+          <td>{reserva.data_inicio}</td>
           <td>
             <button
               className="btn btn-info"

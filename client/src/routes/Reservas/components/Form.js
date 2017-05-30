@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Field, reduxForm} from 'redux-form'
 import renderField, {required} from 'redux-form-field-wrapper'
+import normalizeDatetime from './Normalize'
 
 const fieldConfig = {
   divClass: 'form-group',
@@ -68,6 +69,7 @@ class Form extends Component {
           inputClass="col-md-5"
           label="Data início"
           validate={required}
+          normalize={normalizeDatetime}
         />
         <Field
           {...fieldConfig}
@@ -76,6 +78,7 @@ class Form extends Component {
           inputClass="col-md-5"
           label="Data fim"
           validate={required}
+          normalize={normalizeDatetime}
         />
         <Field
           {...fieldConfig}
