@@ -24,7 +24,7 @@ const Form = props => {
       />
       <Field
         type="password"
-        name="password"
+        name="senha"
         placeholder="Senha"
         label="Senha"
         validate={required}

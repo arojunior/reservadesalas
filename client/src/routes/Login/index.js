@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import {browserHistory} from 'react-router'
+import {connect} from 'react-redux'
 
 import Form from './components/Form'
+import {sendLogin} from '../../modules/Login/actions'
 
 const styles = {
   container: {
@@ -10,7 +12,11 @@ const styles = {
 }
 
 class Login extends Component {
-  handleSubmit = () => browserHistory.push('/home')
+  handleSubmit = values => {
+    this.props
+      .dispatch(sendLogin(values))
+      .then(() => browserHistory.push('/home'))
+  }
   render() {
     return (
       <div className="container" style={styles.container}>
@@ -30,4 +36,4 @@ class Login extends Component {
     )
   }
 }
-export default Login
+export default connect(state => state.Login)(Login)

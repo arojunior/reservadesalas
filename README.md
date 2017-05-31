@@ -11,3 +11,7 @@ npm start
 cd server
 npm start
 ```
+
+### Credentials
+Login: admin@example.com
+Password: admin
