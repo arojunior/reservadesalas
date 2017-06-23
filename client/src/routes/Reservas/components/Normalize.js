@@ -1,4 +1,8 @@
 const normalize = (value, previousValue) => {
+  if (!previousValue && value.length === 19) {
+    return value
+  }
+
   if (previousValue && value.length < previousValue.length) {
     return null
   }
