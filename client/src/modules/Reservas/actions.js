@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../services'
 import {createAction} from 'redux-actions'
 import dateFormat from 'dateformat'
 
@@ -18,8 +18,6 @@ export const normalizeDatetime = values =>
     data_inicio: dateFormat(value.data_inicio, 'dd/mm/yyyy hh:MM:ss'),
     data_fim: dateFormat(value.data_fim, 'dd/mm/yyyy hh:MM:ss')
   }))
-
-axios.defaults.baseURL = 'http://localhost:3001'
 
 export const getReservas = () => ({
   type: [reservaFetching, reservaSuccess, reservaError],
