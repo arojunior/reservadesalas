@@ -1,37 +1,33 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
-
+import {compose, withHandlers} from 'recompose'
 import Form from '../components/Form'
 import {addReservas} from '../../../modules/Reservas/actions'
 
-class AddReserva extends Component {
-  handleSubmit = values => this.props.dispatch(addReservas(values))
-  render() {
-    const initialValues = {}
-    return (
-      <div>
-        <p className="pull-right">
-          <Link to="/reservas" className="btn btn-default">Voltar</Link>
-        </p>
-        <div className="row">
-          <div className="col-md-10">
-            <Form
-              salas={this.props.Salas}
-              locais={this.props.Locais}
-              onSubmit={this.handleSubmit}
-              initialValues={initialValues}
-            />
-          </div>
-        </div>
+const AddReserva = ({Salas, Locais, handleSubmit, initialValues = {}}) =>
+  <div>
+    <p className="pull-right">
+      <Link to="/reservas" className="btn btn-default">Voltar</Link>
+    </p>
+    <div className="row">
+      <div className="col-md-10">
+        <Form
+          salas={Salas}
+          locais={Locais}
+          onSubmit={handleSubmit}
+          initialValues={initialValues}
+        />
       </div>
-    )
-  }
-}
+    </div>
+  </div>
 
-const mapStateToProps = state => ({
-  Salas: state.Salas.data,
-  Locais: state.Locais.data
-})
-
-export default connect(mapStateToProps)(AddReserva)
+export default compose(
+  connect(state => ({
+    Salas: state.Salas.data,
+    Locais: state.Locais.data
+  })),
+  withHandlers({
+    handleSubmit: props => values => props.dispatch(addReservas(values))
+  })
+)(AddReserva)
