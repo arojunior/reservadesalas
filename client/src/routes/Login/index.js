@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {browserHistory} from 'react-router'
 import {connect} from 'react-redux'
+import {compose, withHandlers, withProps} from 'recompose'
 
 import Form from './components/Form'
 import {sendLogin} from '../../modules/Login/actions'
@@ -11,29 +12,29 @@ const styles = {
   }
 }
 
-class Login extends Component {
-  handleSubmit = values => {
-    this.props
-      .dispatch(sendLogin(values))
-      .then(() => browserHistory.push('/home'))
-  }
-  render() {
-    return (
-      <div className="container" style={styles.container}>
-        <div className="col-md-8 col-md-offset-2">
-          <div className="jumbotron">
-            <div className="row text-center">
-              <h2>Faça login aqui</h2>
-            </div>
-            <div className="row">
-              <div className="col-md-10">
-                <Form onSubmit={this.handleSubmit} />
-              </div>
-            </div>
+const Login = ({handleSubmit, styles}) =>
+  <div className="container" style={styles.container}>
+    <div className="col-md-8 col-md-offset-2">
+      <div className="jumbotron">
+        <div className="row text-center">
+          <h2>Faça login aqui</h2>
+        </div>
+        <div className="row">
+          <div className="col-md-10">
+            <Form onSubmit={handleSubmit} />
           </div>
         </div>
       </div>
-    )
-  }
-}
-export default connect(state => state.Login)(Login)
+    </div>
+  </div>
+
+export default compose(
+  connect(state => state.Login),
+  withProps({
+    styles
+  }),
+  withHandlers({
+    handleSubmit: props => values =>
+      props.dispatch(sendLogin(values)).then(() => browserHistory.push('/home'))
+  })
+)(Login)
