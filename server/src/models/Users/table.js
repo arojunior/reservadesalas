@@ -1,6 +1,6 @@
 const {Schema} = require('mongoose')
 
-const usuarios = Schema(
+const users = Schema(
   {
     nome: String,
     email: String,
@@ -11,4 +11,4 @@ const usuarios = Schema(
   }
 )
 
-module.exports = usuarios
+module.exports = users

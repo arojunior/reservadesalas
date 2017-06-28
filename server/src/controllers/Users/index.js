@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const model = require('../../models/Usuarios')
+const model = require('../../models/Users')
 const bcrypt = require('bcrypt')
 
 const hashPassword = password => bcrypt.hash(password, 10)
@@ -17,8 +17,8 @@ router.post('/', (req, res, next) => {
     }
   })
 
-  hashPassword(req.body.senha)
-    .then(hash => Object.assign({}, req.body, {senha: hash}))
+  hashPassword(req.body.password)
+    .then(hash => Object.assign({}, req.body, {password: hash}))
     .then(usuario => model.create(usuario))
     .then(response => res.json({data: 'User OK'}))
 })

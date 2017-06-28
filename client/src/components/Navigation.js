@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-const Navigation = () => (
+const Navigation = () =>
   <nav className="navbar navbar-inverse">
     <div className="container-fluid">
       <div className="navbar-header">
@@ -17,7 +17,7 @@ const Navigation = () => (
           <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
-        <a className="navbar-brand" href="/home">Reserva de Salas</a>
+        <a className="navbar-brand" href="/home">Room Reservation</a>
       </div>
       <div id="navbar" className="navbar-collapse collapse">
         <ul className="nav navbar-nav navbar-right">
@@ -31,6 +31,5 @@ const Navigation = () => (
       </div>
     </div>
   </nav>
-)
 
 export default Navigation

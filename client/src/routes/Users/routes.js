@@ -1,5 +1,5 @@
 export default {
-  path: '/usuarios',
+  path: '/users',
 
   getComponent(nextState, cb) {
     require.ensure([], require => {

@@ -17,7 +17,7 @@ const Login = ({handleSubmit, styles}) =>
     <div className="col-md-8 col-md-offset-2">
       <div className="jumbotron">
         <div className="row text-center">
-          <h2>Faça login aqui</h2>
+          <h2>Login</h2>
         </div>
         <div className="row">
           <div className="col-md-10">

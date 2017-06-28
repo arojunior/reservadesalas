@@ -4,7 +4,7 @@
  */
 //var fs = require('fs');
 var app = require('./../server')
-var debug = require('debug')('test-sequelize:server')
+var debug = require('debug')
 var http = require('http')
 //var https = require('https');
 /**

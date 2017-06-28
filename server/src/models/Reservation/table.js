@@ -3,26 +3,26 @@ const moment = require('moment')
 
 const dateNormalize = value => moment(value, 'DD/MM/YYYY HH:mm:ss')
 
-const reservas = Schema(
+const table = Schema(
   {
-    local: String,
-    sala: String,
-    data_inicio: {
+    place: String,
+    room: String,
+    date_start: {
       type: Date,
       set: dateNormalize
     },
-    data_fim: {
+    date_end: {
       type: Date,
       set: dateNormalize
     },
-    responsavel: String,
-    cafe: Boolean,
-    quantidade_pessoas: Number,
-    descricao: String
+    owner: String,
+    coffee: Boolean,
+    people: Number,
+    description: String
   },
   {
     timestamps: true
   }
 )
 
-module.exports = reservas
+module.exports = table

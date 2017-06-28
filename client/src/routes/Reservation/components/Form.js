@@ -24,73 +24,73 @@ class Form extends Component {
   render() {
     const {
       handleSubmit,
-      salas,
-      locais,
+      rooms,
+      places,
       pristine,
       reset,
       submitting
     } = this.props
 
-    const salasOptions = salas.map(sala => ({
-      name: sala.nome,
-      value: sala.nome
+    const roomsOptions = rooms.map(room => ({
+      name: room.name,
+      value: room.name
     }))
-    salasOptions.unshift({name: ''})
+    roomsOptions.unshift({name: ''})
 
-    const locaisOptions = locais.map(local => ({
-      name: local.nome,
-      value: local.nome
+    const placesOptions = places.map(place => ({
+      name: place.name,
+      value: place.name
     }))
-    locaisOptions.unshift({name: ''})
+    placesOptions.unshift({name: ''})
 
     return (
       <form onSubmit={handleSubmit} className="form-horizontal">
         <Field type="hidden" name="_id" component="input" />
         <Field
           {...fieldConfig}
-          name="local"
-          label="Local/Filial"
+          name="place"
+          label="Place"
           type="select"
-          selectOptions={locaisOptions}
+          selectOptions={placesOptions}
           validate={required}
         />
         <Field
           {...fieldConfig}
-          name="sala"
-          label="Sala"
+          name="room"
+          label="Room"
           validate={required}
           type="select"
-          selectOptions={salasOptions}
+          selectOptions={roomsOptions}
         />
         <Field
           {...fieldConfig}
           type="text"
-          name="data_inicio"
+          name="date_start"
           inputClass="col-md-5"
-          label="Data início"
+          label="Start date"
           validate={required}
           normalize={normalizeDatetime}
         />
         <Field
           {...fieldConfig}
           type="text"
-          name="data_fim"
+          name="date_end"
           inputClass="col-md-5"
-          label="Data fim"
+          label="End date"
           validate={required}
           normalize={normalizeDatetime}
         />
         <Field
           {...fieldConfig}
           type="text"
-          name="responsavel"
-          label="Responsável"
+          name="owner"
+          label="Sponsor"
           validate={required}
         />
         <Field
           {...fieldConfig}
-          name="cafe"
-          label="Café"
+          name="coffee"
+          label="Coffee"
           type="checkbox"
           className=""
           onChange={() => this.setCafe(this.state.cafeIsChecked)}
@@ -100,8 +100,8 @@ class Form extends Component {
           <Field
             {...fieldConfig}
             type="text"
-            name="quantidade_pessoas"
-            label="Qtd. pessoas"
+            name="people"
+            label="People number"
             inputClass="col-md-2"
             validate={required}
           />}
@@ -109,8 +109,8 @@ class Form extends Component {
         <Field
           {...fieldConfig}
           type="textarea"
-          name="descricao"
-          label="Descrição"
+          name="description"
+          label="Description"
         />
 
         <div className="form-group">
@@ -119,14 +119,14 @@ class Form extends Component {
               type="submit"
               className="btn btn-primary"
               disabled={pristine || submitting}>
-              Gravar
+              Save
             </button>{' '}
             <button
               type="button"
               className="btn btn-default"
               disabled={pristine || submitting}
               onClick={reset}>
-              Limpar
+              Clear
             </button>
           </div>
         </div>
@@ -136,5 +136,5 @@ class Form extends Component {
 }
 
 export default reduxForm({
-  form: 'formReservas'
+  form: 'formReservation'
 })(Form)

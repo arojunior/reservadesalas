@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const model = require('../../models/Usuarios')
+const model = require('../../models/Users')
 const bcrypt = require('bcrypt')
 
 const checkPassword = (pass_user, pass_db) => bcrypt.compare(pass_user, pass_db)

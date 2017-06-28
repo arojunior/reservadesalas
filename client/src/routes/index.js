@@ -2,8 +2,11 @@ import Layout from '../layouts'
 
 import Home from './Home'
 import Login from './Login'
-import Reservas, {AddReserva, EditReserva} from './Reservas/routes'
-import Usuarios from './Usuarios/routes'
+import Users from './Users/routes'
+import Reservation, {
+  AddReservation,
+  EditReservation
+} from './Reservation/routes'
 
 export default [
   {
@@ -14,6 +17,6 @@ export default [
     path: '/home',
     component: Layout,
     indexRoute: Home,
-    childRoutes: [Reservas, AddReserva, EditReserva, Usuarios]
+    childRoutes: [Reservation, AddReservation, EditReservation, Users]
   }
 ]

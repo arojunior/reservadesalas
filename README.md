@@ -1,7 +1,11 @@
+### Config
+Change datase configuration in /server/src/database/mongo.js
+
 ### Start client
 
 ```shell
 cd client
+npm install
 npm start
 ```
 
@@ -9,6 +13,7 @@ npm start
 
 ```shell
 cd server
+npm install
 npm start
 ```
 

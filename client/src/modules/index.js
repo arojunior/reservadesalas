@@ -3,16 +3,16 @@ import {reducer as formReducer} from 'redux-form'
 import fetchMiddleware from 'fetch-middleware'
 import storeSynchronize from 'redux-localstore'
 
-import Salas from './Salas'
-import Locais from './Locais'
-import Reservas from './Reservas'
+import Rooms from './Rooms'
+import Places from './Places'
+import Reservation from './Reservation'
 import Login from './Login'
 
 const combineReducer = combineReducers({
   form: formReducer,
-  Salas,
-  Locais,
-  Reservas,
+  Rooms,
+  Places,
+  Reservation,
   Login
 })
 

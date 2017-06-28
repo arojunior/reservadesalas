@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Usuarios = () => (
+const Users = () =>
   <div className="row">
     <table className="table">
       <thead>
@@ -19,6 +19,5 @@ const Usuarios = () => (
       </tbody>
     </table>
   </div>
-)
 
-export default Usuarios
+export default Users

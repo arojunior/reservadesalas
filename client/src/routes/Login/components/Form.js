@@ -25,8 +25,8 @@ const Form = props => {
       <Field
         type="password"
         name="senha"
-        placeholder="Senha"
-        label="Senha"
+        placeholder="Password"
+        label="Password"
         validate={required}
         {...fieldConfig}
       />
@@ -36,7 +36,7 @@ const Form = props => {
             type="submit"
             className="btn btn-primary"
             disabled={pristine || submitting}>
-            Enviar
+            Send
           </button>
         </div>
       </div>
