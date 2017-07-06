@@ -1,35 +1,24 @@
 import React from 'react'
 import {Link} from 'react-router'
+import {Navbar, Nav, NavItem} from 'react-bootstrap'
 
 const Navigation = () =>
-  <nav className="navbar navbar-inverse">
-    <div className="container-fluid">
-      <div className="navbar-header">
-        <button
-          type="button"
-          className="navbar-toggle collapsed"
-          data-toggle="collapse"
-          data-target="#navbar"
-          aria-expanded="false"
-          aria-controls="navbar">
-          <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar" />
-          <span className="icon-bar" />
-          <span className="icon-bar" />
-        </button>
-        <a className="navbar-brand" href="/home">Room Reservation</a>
-      </div>
-      <div id="navbar" className="navbar-collapse collapse">
-        <ul className="nav navbar-nav navbar-right">
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/">Logout</Link>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <Navbar>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <Link className="navbar-brand" href="/home">
+          Room Reservation
+        </Link>
+      </Navbar.Brand>
+    </Navbar.Header>
+    <Nav>
+      <NavItem eventKey={1}>
+        <Link to="/home">Home</Link>
+      </NavItem>
+      <NavItem eventKey={2}>
+        <Link to="/">Logout</Link>
+      </NavItem>
+    </Nav>
+  </Navbar>
 
 export default Navigation

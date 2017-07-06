@@ -1,12 +1,13 @@
 import React from 'react'
+import {Row, Col} from 'react-bootstrap'
 
 const Home = () => {
   return (
-    <div className="row">
-      <div className="col-md-4 col-md-offset-4">
+    <Row>
+      <Col md={4} mdOffset={4}>
         <h3>Room reservation</h3>
-      </div>
-    </div>
+      </Col>
+    </Row>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
 import renderField, {required} from 'redux-form-field-wrapper'
+import {Col, Button, FormGroup} from 'react-bootstrap'
 
 const fieldConfig = {
   divClass: 'form-group',
@@ -30,16 +31,16 @@ const Form = props => {
         validate={required}
         {...fieldConfig}
       />
-      <div className="col-md-6 col-md-offset-2">
-        <div className="form-group">
-          <button
+      <Col md={6} mdOffset={2}>
+        <FormGroup>
+          <Button
             type="submit"
-            className="btn btn-primary"
+            bsStyle="primary"
             disabled={pristine || submitting}>
             Send
-          </button>
-        </div>
-      </div>
+          </Button>
+        </FormGroup>
+      </Col>
     </form>
   )
 }

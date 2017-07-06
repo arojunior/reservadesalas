@@ -7,5 +7,3 @@ export default Component => {
   }
   return Component
 }
-
-//export default Component => Component
