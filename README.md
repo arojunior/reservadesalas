@@ -1,5 +1,5 @@
 ### Config
-Change datase configuration in /server/src/database/mongo.js
+Change database configuration in /server/src/database/mongo.js
 
 ### Start client
 
