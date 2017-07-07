@@ -12,11 +12,11 @@ const Navigation = () =>
       </Navbar.Brand>
     </Navbar.Header>
     <Nav>
-      <NavItem eventKey={1}>
-        <Link to="/home">Home</Link>
+      <NavItem eventKey={1} href="/home">
+        Home
       </NavItem>
-      <NavItem eventKey={2}>
-        <Link to="/">Logout</Link>
+      <NavItem eventKey={2} href="/">
+        Logout
       </NavItem>
     </Nav>
   </Navbar>

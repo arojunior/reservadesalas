@@ -17,8 +17,8 @@ export const reservationSelect = createAction(RESERVATION_SELECT)
 export const normalizeDatetime = values =>
   values.map(value => ({
     ...value,
-    data_inicio: dateFormat(value.data_inicio, 'dd/mm/yyyy hh:MM:ss'),
-    data_fim: dateFormat(value.data_fim, 'dd/mm/yyyy hh:MM:ss')
+    date_start: dateFormat(value.date_start, 'dd/mm/yyyy hh:MM:ss'),
+    date_end: dateFormat(value.date_end, 'dd/mm/yyyy hh:MM:ss')
   }))
 
 export const getReservation = () => ({

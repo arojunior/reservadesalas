@@ -2,10 +2,10 @@ import {handleActions} from 'redux-actions'
 import {normalizeDatetime} from './actions'
 
 import {
-  RESERVA_FETCHING,
-  RESERVA_SUCCESS,
-  RESERVA_ERROR,
-  RESERVA_SELECT
+  RESERVATION_FETCHING,
+  RESERVATION_SUCCESS,
+  RESERVATION_ERROR,
+  RESERVATION_SELECT
 } from './actions'
 
 const initialState = {
@@ -16,23 +16,23 @@ const initialState = {
 
 const reducer = handleActions(
   {
-    [RESERVA_FETCHING]: (state, action) => ({
+    [RESERVATION_FETCHING]: (state, action) => ({
       ...state,
       fetching: true
     }),
 
-    [RESERVA_SUCCESS]: (state, action) => ({
+    [RESERVATION_SUCCESS]: (state, action) => ({
       ...state,
       fetching: false,
       data: normalizeDatetime(action.payload.data)
     }),
 
-    [RESERVA_ERROR]: (state, action) => ({
+    [RESERVATION_ERROR]: (state, action) => ({
       ...state,
       fetching: false
     }),
 
-    [RESERVA_SELECT]: (state, action) => ({
+    [RESERVATION_SELECT]: (state, action) => ({
       ...state,
       fetching: false,
       selected: action.payload
